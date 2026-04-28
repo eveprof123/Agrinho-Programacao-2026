@@ -1,132 +1,162 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Sabor & Arte | Receitas Simples</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabor & Arte | Receitas Simples</title>
+    <title>Master Chef Caseiro | Receitas de Sucesso</title>
     <style>
-        /* Estilo Geral */
+        :root {
+            --primaria: #e67e22;
+            --secundaria: #d35400;
+            --fundo: #fdfaf6;
+            --texto: #2d3436;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
             margin: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            padding: 0;
         }
 
-        /* Cabeçalho */
         header {
-            background-color: #e67e22;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1495195129352-aec325a55b65?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 2rem;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 80px 20px;
         }
 
-        /* Menu de Navegação */
         nav {
-            background: #d35400;
-            text-align: center;
-            padding: 10px;
+            background: white;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
         }
 
         nav a {
-            color: white;
             text-decoration: none;
-            margin: 0 15px;
+            color: var(--secundaria);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: #e74c3c; }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Card de Receita */
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+
+        .card-content { padding: 20px; }
+
+        .badge {
+            background: #ffeaa7;
+            color: #d35400;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: bold;
         }
 
-        /* Conteúdo Principal */
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        .btn {
+            display: inline-block;
+            background: var(--primaria);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
         }
 
-        .receita-img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            color: #d35400;
-            border-bottom: 2px solid #f1c40f;
-            padding-bottom: 5px;
-        }
-
-        ul, ol {
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* Rodapé */
         footer {
+            background: #2d3436;
+            color: white;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #777;
+            padding: 40px;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Sabor & Arte</h1>
-        <p>Receitas caseiras feitas com amor</p>
+        <h1>🍳 Master Chef Caseiro</h1>
+        <p>Descubra o prazer de cozinhar pratos incríveis em minutos.</p>
     </header>
 
     <nav>
-        <a href="#">Início</a>
-        <a href="#">Receitas</a>
-        <a href="#">Dicas</a>
-        <a href="#">Contato</a>
+        <a href="#doces">Doces</a>
+        <a href="#salgados">Salgados</a>
+        <a href="#fit">Saudável</a>
+        <a href="#sobre">Dicas do Chef</a>
     </nav>
 
     <div class="container">
-        <article>
-            <h2>Bolo de Caneca de Chocolate Express</h2>
-            <p>Uma solução rápida para aquela vontade de doce no meio da tarde. Fica pronto em apenas 3 minutos!</p>
-            
-            <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=800&q=80" alt="Bolo de Chocolate" class="receita-img">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="Salada">
+            <div class="card-content">
+                <span class="badge">Saudável</span>
+                <h3>Bowl de Quinoa e Abacate</h3>
+                <p>⏱️ 15 min | 🟢 Fácil</p>
+                <p>Uma opção leve, nutritiva e perfeita para um almoço rápido no dia a dia.</p>
+                <a href="#" class="btn">Ver Receita</a>
+            </div>
+        </div>
 
-            <h3>Ingredientes</h3>
-            <ul>
-                <li>1 ovo pequeno</li>
-                <li>4 colheres (sopa) de leite</li>
-                <li>3 colheres (sopa) de óleo</li>
-                <li>2 colheres (sopa) rasas de chocolate em pó</li>
-                <li>4 colheres (sopa) rasas de açúcar</li>
-                <li>4 colheres (sopa) rasas de farinha de trigo</li>
-                <li>1 colher (café) de fermento em pó</li>
-            </ul>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Pizza">
+            <div class="card-content">
+                <span class="badge">Salgado</span>
+                <h3>Pizza Marguerita Caseira</h3>
+                <p>⏱️ 45 min | 🟡 Médio</p>
+                <p>Aprenda o segredo da massa italiana crocante com poucos ingredientes.</p>
+                <a href="#" class="btn">Ver Receita</a>
+            </div>
+        </div>
 
-            <h3>Modo de Preparo</h3>
-            <ol>
-                <li>Coloque o ovo na caneca e bata levemente com um garfo.</li>
-                <li>Adicione o óleo, o açúcar, o leite e o chocolate, mexendo bem.</li>
-                <li>Incorpore a farinha e o fermento suavemente até a massa ficar homogênea.</li>
-                <li>Leve ao micro-ondas por <strong>3 minutos</strong> em potência alta.</li>
-                <li>Sirva ainda quente com uma bola de sorvete se desejar!</li>
-            </ol>
-        </article>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=500&q=80" alt="Donut">
+            <div class="card-content">
+                <span class="badge">Doce</span>
+                <h3>Donuts de Chocolate</h3>
+                <p>⏱️ 60 min | 🔴 Difícil</p>
+                <p>Para quem ama confeitaria: donuts macios com cobertura de ganache real.</p>
+                <a href="#" class="btn">Ver Receita</a>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Sabor & Arte - Desenvolvido para entusiastas da cozinha.</p>
+        <p>Receba receitas novas toda semana!</p>
+        <input type="email" placeholder="Seu melhor e-mail">
+        <button style="padding: 5px 15px;">Assinar</button>
+        <p style="margin-top: 20px;">&copy; 2026 Master Chef Caseiro</p>
     </footer>
 
 </body>
