@@ -139,3 +139,31 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.1);
     padding-top: 20px;
 }
+/* ESTILIZAÇÃO DO LOGOTIPO */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    gap: 15px;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--branco);
+    object-fit: contain;
+    padding: 2px;
+    border: 2px solid var(--amarelo-destaque);
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .logo-img {
+    transform: scale(1.05);
+}
+
+.logo-texto-container {
+    display: flex;
+    flex-direction: column;
+}
