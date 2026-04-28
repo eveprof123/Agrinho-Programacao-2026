@@ -4,81 +4,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CEMAG - C. E. Manoel Antonio Gomes</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CONFIGURAÇÕES DE CORES INSTITUCIONAIS */
+        :root {
+            --azul-parana: #004a8d; /* Azul que remete a instituições estaduais */
+            --azul-escuro: #003366;
+            --cinza-claro: #f4f7f9;
+            --texto: #333333;
+            --branco: #ffffff;
+            --amarelo-alerta: #ffcc00;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--texto);
+            background-color: var(--branco);
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background-color: var(--azul-parana);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container-header {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo h1 { margin: 0; font-size: 1.5rem; }
+        .logo p { margin: 0; font-size: 0.8rem; opacity: 0.9; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover { color: var(--amarelo-alerta); }
+
+        /* BANNER */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), 
+                        url('https://images.unsplash.com/photo-1541339907198-e08756ebafe3?w=1200');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        .main-content {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .grid-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--cinza-claro);
+            padding: 25px;
+            border-radius: 8px;
+            border-bottom: 4px solid var(--azul-parana);
+        }
+
+        /* SEÇÃO DE CONTATO E MAPA */
+        .contato-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: #eee;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .btn-mapa {
+            display: inline-block;
+            background: var(--azul-parana);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background: var(--azul-escuro);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .contato-row { grid-template-columns: 1fr; }
+            .container-header { flex-direction: column; text-align: center; }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <div class="header-container">
+        <div class="container-header">
             <div class="logo">
-                <span class="sigla">CEMAG</span>
-                <span class="nome-completo">C. E. Manoel Antonio Gomes - EFM</span>
+                <h1>CEMAG</h1>
+                <p>C. E. Manoel Antonio Gomes - EFM</p>
             </div>
             <nav>
                 <a href="#inicio">Início</a>
                 <a href="#sobre">O Colégio</a>
-                <a href="#noticias">Avisos</a>
-                <a href="#contato" class="btn-contato">Contato</a>
+                <a href="#contato">Contato</a>
             </nav>
         </div>
     </header>
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Educação de Qualidade, Futuro com Oportunidade.</h1>
-            <p>Formando cidadãos e profissionais desde a base até o Ensino Médio.</p>
-            <a href="#sobre" class="btn-saiba-mais">Conheça nossa história</a>
-        </div>
+    <section class="hero" id="inicio">
+        <h1>Bem-vindo ao CEMAG</h1>
+        <p>Tradição e excelência no ensino público de Reserva, Paraná.</p>
     </section>
 
-    <main class="container">
+    <main class="main-content">
         
-        <section id="sobre" class="info-secao">
-            <h2>Sobre o CEMAG</h2>
-            <p>O Colégio Estadual Manoel Antonio Gomes - Ensino Fundamental e Médio (EFM) dedica-se ao desenvolvimento integral dos estudantes, oferecendo suporte pedagógico de excelência e um ambiente propício ao aprendizado.</p>
-            
-            <div class="cards-ensino">
+        <section id="sobre">
+            <h2>Nossos Níveis de Ensino</h2>
+            <div class="grid-info">
                 <div class="card">
                     <h3>Ensino Fundamental</h3>
-                    <p>Foco na base educacional e desenvolvimento de competências essenciais.</p>
+                    <p>Anos finais (6º ao 9º ano) com foco no desenvolvimento intelectual e social do aluno.</p>
                 </div>
                 <div class="card">
                     <h3>Ensino Médio</h3>
-                    <p>Preparação para o vestibular, ENEM e o mercado de trabalho.</p>
+                    <p>Preparação sólida para o ENEM, vestibulares e formação técnica/profissionalizante.</p>
                 </div>
             </div>
         </section>
 
-        <section id="noticias" class="avisos">
-            <h2>Quadro de Avisos</h2>
-            <div class="lista-avisos">
-                <div class="aviso-item">
-                    <span class="data">28 Abr</span>
-                    <p>Reunião de pais e mestres - 1º Bimestre às 19h.</p>
+        <section id="contato">
+            <div class="contato-row">
+                <div>
+                    <h2>Entre em Contato</h2>
+                    <p><strong>📞 Telefone:</strong> (42) 3276-1274</p>
+                    <p><strong>📍 Endereço:</strong><br>
+                    Rua Polônia, 905, Centro<br>
+                    Reserva - PR, 84320-000</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Rua+Polonia+905+Reserva+PR" target="_blank" class="btn-mapa">🗺️ Ver no Google Maps</a>
                 </div>
-                <div class="aviso-item">
-                    <span class="data">15 Mai</span>
-                    <p>Início das inscrições para os Jogos Escolares.</p>
+                <div>
+                    <h2>Horário de Atendimento</h2>
+                    <p><strong>Manhã:</strong> 07:30 às 11:45</p>
+                    <p><strong>Tarde:</strong> 13:00 às 17:30</p>
+                    <p><strong>Noite:</strong> 18:30 às 22:30</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer id="contato">
-        <div class="footer-grid">
-            <div>
-                <h3>Localização</h3>
-                <p>Endereço do CEMAG em Reserva - PR</p>
-            </div>
-            <div>
-                <h3>Secretaria</h3>
-                <p>Telefone: (42) XXXX-XXXX</p>
-                <p>E-mail: colegiocemag@escola.pr.gov.br</p>
-            </div>
-        </div>
-        <p class="copyright">&copy; 2026 CEMAG. Todos os direitos reservados.</p>
+    <footer>
+        <p><strong>Colégio Estadual Manoel Antonio Gomes - EFM</strong></p>
+        <p>Reserva - Paraná</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 15px;">&copy; 2026 Desenvolvido para o portal escolar.</p>
     </footer>
 
 </body>
