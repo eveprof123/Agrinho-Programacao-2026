@@ -80,6 +80,43 @@
         }
 
         nav a:hover { color: var(--amarelo-alerta); }
+        /* HERO SECTION - IMAGEM APENAS AQUI */
+        .hero {
+            /* Imagem download.png aplicada como fundo do banner */
+            background: linear-gradient(rgba(0, 51, 102, 0.6), rgba(0, 51, 102, 0.6)), 
+                        url('download.png'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+        .main-content {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 { text-align: center; color: var(--azul-escuro); margin-bottom: 30px; }
+
+        /* CARDS DE ENSINO */
+        .grid-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--cinza-claro);
+            padding: 30px;
+            border-radius: 10px;
+            border-bottom: 5px solid var(--azul-parana);
+            text-align: center;
+        }
 
         /* HERO SECTION */
         .hero {
