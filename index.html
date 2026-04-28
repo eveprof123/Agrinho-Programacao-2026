@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colégio Estadual Manoel Antonio Gomes - CEMAG </title>
+    <title>CEMAG - C. E. Manoel Antonio Gomes</title>
     <style>
-        /* CONFIGURAÇÕES DE CORES INSTITUCIONAIS */
+        /* CONFIGURAÇÕES GERAIS */
         :root {
             --azul-parana: #004a8d;
             --azul-escuro: #003366;
@@ -16,12 +16,13 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             color: var(--texto);
             background-color: var(--branco);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         /* CABEÇALHO */
@@ -44,7 +45,7 @@
             padding: 0 20px;
         }
 
-        .logo h1 { margin: 0; font-size: 1.5rem; }
+        .logo h1 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; }
         .logo p { margin: 0; font-size: 0.8rem; opacity: 0.9; }
 
         nav a {
@@ -53,11 +54,12 @@
             margin-left: 20px;
             font-weight: bold;
             font-size: 0.9rem;
+            transition: color 0.3s;
         }
 
         nav a:hover { color: var(--amarelo-alerta); }
 
-        /* BANNER */
+        /* BANNER PRINCIPAL */
         .hero {
             background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), 
                         url('https://images.unsplash.com/photo-1541339907198-e08756ebafe3?w=1200');
@@ -65,98 +67,121 @@
             background-position: center;
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
         }
 
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        /* CONTEÚDO */
         .main-content {
             max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
+        h2 {
+            text-align: center;
+            color: var(--azul-escuro);
+            margin-bottom: 30px;
+        }
+
+        /* CARDS DE ENSINO */
         .grid-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .card {
             background: var(--cinza-claro);
-            padding: 25px;
-            border-radius: 8px;
-            border-bottom: 4px solid var(--azul-parana);
+            padding: 30px;
+            border-radius: 10px;
+            border-bottom: 5px solid var(--azul-parana);
+            text-align: center;
         }
 
-        /* CSS DOS DOCUMENTOS ÚTEIS */
+        /* DOCUMENTOS ÚTEIS */
         .documentos-secao {
-            padding: 40px 0;
-            text-align: center;
+            background-color: #fcfcfc;
+            padding: 50px 20px;
+            border-radius: 15px;
+            margin-bottom: 60px;
         }
 
         .grid-documentos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
 
         .doc-card {
             background: #fff;
-            padding: 20px;
+            padding: 25px;
             border: 1px solid #ddd;
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: center;
-            transition: 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .doc-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .doc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
 
-        .icon { font-size: 2rem; margin-bottom: 10px; }
+        .icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
 
         .btn-download {
             display: inline-block;
             margin-top: 15px;
-            padding: 8px 15px;
+            padding: 10px 20px;
             background: var(--azul-parana);
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: background 0.3s;
         }
+
+        .btn-download:hover { background: var(--azul-escuro); }
 
         /* CONTATO E MAPA */
         .contato-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            background: #eee;
+            background: #f0f0f0;
             padding: 40px;
-            border-radius: 12px;
-            margin-top: 40px;
+            border-radius: 15px;
         }
+
+        .info-contato h2 { text-align: left; }
 
         .btn-mapa {
             display: inline-block;
-            background: var(--azul-parana);
+            background: #27ae60;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             text-decoration: none;
             border-radius: 5px;
+            font-weight: bold;
             margin-top: 15px;
         }
 
+        /* RODAPÉ */
         footer {
             background: var(--azul-escuro);
             color: white;
             text-align: center;
-            padding: 30px;
-            margin-top: 50px;
+            padding: 40px 20px;
+            margin-top: 60px;
         }
 
         @media (max-width: 768px) {
             .contato-row { grid-template-columns: 1fr; }
-            .container-header { flex-direction: column; text-align: center; }
+            .container-header { flex-direction: column; }
             nav { margin-top: 15px; }
             nav a { margin: 0 10px; }
         }
@@ -191,38 +216,38 @@
             <div class="grid-info">
                 <div class="card">
                     <h3>Ensino Fundamental</h3>
-                    <p>Anos finais (6º ao 9º ano) com foco no desenvolvimento intelectual e social do aluno.</p>
+                    <p>Anos finais (6º ao 9º ano) com foco no desenvolvimento integral, intelectual e social do aluno.</p>
                 </div>
                 <div class="card">
                     <h3>Ensino Médio</h3>
-                    <p>Preparação sólida para o ENEM, vestibulares e formação técnica/profissionalizante.</p>
+                    <p>Preparação sólida para o ENEM, vestibulares e formação voltada ao mercado de trabalho.</p>
                 </div>
             </div>
         </section>
 
         <section id="documentos" class="documentos-secao">
             <h2>Documentos Úteis</h2>
-            <p>Acesse e baixe os arquivos importantes do ano letivo.</p>
+            <p style="text-align: center;">Clique nos botões abaixo para visualizar ou baixar os arquivos oficiais.</p>
             
             <div class="grid-documentos">
                 <div class="doc-card">
-                    <div class="icon">📅</div>
-                    <h4>Calendário Escolar</h4>
-                    <p>Datas de feriados e reuniões.</p>
-                    <a href="#" class="btn-download">Baixar PDF</a>
+                    <span class="icon">📅</span>
+                    <h4>Calendário Escolar 2026</h4>
+                    <p>Datas de provas, feriados e recessos escolares.</p>
+                    <a href="https://www.educacao.pr.gov.br/sites/default/arquivos_restritos/files/documento/2025-11/calendario_escolar2026.pdf" target="_blank" class="btn-download">Abrir Calendário</a>
                 </div>
 
                 <div class="doc-card">
-                    <div class="icon">📝</div>
+                    <span class="icon">📝</span>
                     <h4>Lista de Materiais</h4>
-                    <p>Relação completa por série.</p>
+                    <p>Relação de materiais necessários para cada série.</p>
                     <a href="#" class="btn-download">Ver Lista</a>
                 </div>
 
                 <div class="doc-card">
-                    <div class="icon">📋</div>
-                    <h4>Regimento</h4>
-                    <p>Normas e deveres dos alunos.</p>
+                    <span class="icon">📋</span>
+                    <h4>Regimento Escolar</h4>
+                    <p>Normas de convivência e regimento interno.</p>
                     <a href="#" class="btn-download">Acessar</a>
                 </div>
             </div>
@@ -230,16 +255,16 @@
 
         <section id="contato">
             <div class="contato-row">
-                <div>
+                <div class="info-contato">
                     <h2>Entre em Contato</h2>
                     <p><strong>📞 Telefone:</strong> (42) 3276-1274</p>
                     <p><strong>📍 Endereço:</strong><br>
                     Rua Polônia, 905, Centro<br>
                     Reserva - PR, 84320-000</p>
-                    <a href="https://maps.google.com/?q=Rua+Polonia+905+Reserva+PR" target="_blank" class="btn-mapa">🗺️ Ver no Google Maps</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Rua+Polonia+905+Reserva+PR" target="_blank" class="btn-mapa">🗺️ Ver no Google Maps</a>
                 </div>
                 <div>
-                    <h2>Horário de Atendimento</h2>
+                    <h2>Horário de Secretaria</h2>
                     <p><strong>Manhã:</strong> 07:30 às 11:45</p>
                     <p><strong>Tarde:</strong> 13:00 às 17:30</p>
                     <p><strong>Noite:</strong> 18:30 às 22:30</p>
@@ -252,7 +277,7 @@
     <footer>
         <p><strong>Colégio Estadual Manoel Antonio Gomes - EFM</strong></p>
         <p>Reserva - Paraná</p>
-        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 15px;">© 2026 Desenvolvido para o portal escolar.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 15px;">© 2026 Desenvolvido para fins educacionais.</p>
     </footer>
 
 </body>
