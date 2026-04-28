@@ -5,17 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Chef Caseiro | Receitas de Sucesso</title>
     <style>
-        /* CONFIGURAÇÕES GERAIS E CORES */
+        /* CONFIGURAÇÕES GERAIS */
         :root {
             --primaria: #e67e22;
             --secundaria: #d35400;
             --fundo: #fdfaf6;
             --texto: #2d3436;
             --branco: #ffffff;
-        }
-
-        html {
-            scroll-behavior: smooth; /* Faz o deslizar da tela ser suave */
         }
 
         body {
@@ -27,7 +23,7 @@
             line-height: 1.6;
         }
 
-        /* CABEÇALHO */
+        /* CABEÇALHO E MENU */
         header {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                         url('https://images.unsplash.com/photo-1495195129352-aec325a55b65?auto=format&fit=crop&w=1200&q=80');
@@ -38,7 +34,6 @@
             padding: 60px 20px;
         }
 
-        /* MENU */
         nav {
             background: var(--branco);
             padding: 15px;
@@ -51,11 +46,7 @@
             z-index: 100;
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--secundaria);
-            font-weight: bold;
-        }
+        nav a { text-decoration: none; color: var(--secundaria); font-weight: bold; }
 
         /* CONTAINER DOS CARDS */
         .container-cards {
@@ -67,7 +58,6 @@
             gap: 30px;
         }
 
-        /* ESTILO DO CARD (IGUAL À SUA IMAGEM) */
         .card {
             background: var(--branco);
             border-radius: 15px;
@@ -77,9 +67,7 @@
         }
 
         .card:hover { transform: translateY(-5px); }
-
         .card img { width: 100%; height: 200px; object-fit: cover; }
-
         .card-content { padding: 20px; }
 
         .badge {
@@ -103,35 +91,63 @@
             font-weight: bold;
             margin-top: 15px;
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
         }
 
         .btn:hover { background: var(--secundaria); }
 
-        /* SEÇÃO DE DETALHES DA RECEITA */
-        .container-receitas {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 20px;
+        /* === ESTILO DO MODAL (JANELA EM DESTAQUE) === */
+        
+        /* Fundo escuro */
+        .modal-overlay {
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
         }
 
-        .detalhe-receita {
-            background: var(--branco);
-            padding: 40px;
-            margin-top: 40px;
+        /* Caixa da Receita */
+        .modal-content {
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-left: 8px solid var(--primaria);
+            z-index: 1001;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
 
-        .detalhe-receita h2 { color: var(--secundaria); margin-top: 0; }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--fundo);
+            margin-bottom: 20px;
+        }
 
-        .btn-voltar {
-            display: block;
-            margin-top: 30px;
+        .btn-fechar {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
             color: #777;
-            text-decoration: none;
-            font-size: 0.9rem;
         }
+
+        .modal-body h3 { color: var(--secundaria); }
 
         footer {
             background: #2d3436;
@@ -151,7 +167,7 @@
 
     <nav>
         <a href="#">Início</a>
-        <a href="#doces">Receitas</a>
+        <a href="#">Receitas</a>
         <a href="#">Sobre</a>
     </nav>
 
@@ -163,8 +179,7 @@
                 <span class="badge">Saudável</span>
                 <h3>Bowl de Quinoa e Abacate</h3>
                 <p>⏱️ 15 min | 🟢 Fácil</p>
-                <p>Uma opção leve, nutritiva e perfeita para um almoço rápido no dia a dia.</p>
-                <a href="#receita-quinoa" class="btn">Ver Receita</a>
+                <button class="btn" onclick="abrirReceita('modal-quinoa')">Ver Receita</button>
             </div>
         </div>
 
@@ -174,8 +189,7 @@
                 <span class="badge">Salgado</span>
                 <h3>Pizza Marguerita Caseira</h3>
                 <p>⏱️ 45 min | 🟡 Médio</p>
-                <p>Aprenda o segredo da massa italiana crocante com poucos ingredientes.</p>
-                <a href="#receita-pizza" class="btn">Ver Receita</a>
+                <button class="btn" onclick="abrirReceita('modal-pizza')">Ver Receita</button>
             </div>
         </div>
 
@@ -185,68 +199,85 @@
                 <span class="badge">Doce</span>
                 <h3>Donuts de Chocolate</h3>
                 <p>⏱️ 60 min | 🔴 Difícil</p>
-                <p>Para quem ama confeitaria: donuts macios com cobertura de ganache real.</p>
-                <a href="#receita-donuts" class="btn">Ver Receita</a>
+                <button class="btn" onclick="abrirReceita('modal-donuts')">Ver Receita</button>
             </div>
         </div>
 
     </div>
 
-    <div class="container-receitas">
-        
-        <section id="receita-quinoa" class="detalhe-receita">
-            <h2>Bowl de Quinoa e Abacate</h2>
-            <p><strong>Dica do Chef:</strong> Cozinhe a quinoa em caldo de legumes para dar mais sabor!</p>
+    <div class="modal-overlay" id="overlay" onclick="fecharReceita()"></div>
+
+    <div id="modal-quinoa" class="modal-content">
+        <div class="modal-header">
+            <h2>Bowl de Quinoa</h2>
+            <button class="btn-fechar" onclick="fecharReceita()">&times;</button>
+        </div>
+        <div class="modal-body">
             <h3>Ingredientes</h3>
             <ul>
                 <li>1 xícara de quinoa cozida</li>
                 <li>1/2 abacate maduro</li>
-                <li>Tomates cereja, milho e pepino</li>
-                <li>Azeite, limão e sal</li>
+                <li>Tomates cereja e pepino</li>
             </ul>
             <h3>Modo de Preparo</h3>
-            <p>1. Em uma tigela grande, coloque a quinoa como base.<br>
-               2. Arrume os vegetais picados por cima de forma organizada.<br>
-               3. Finalize com as fatias de abacate e o tempero.</p>
-            <a href="#" class="btn-voltar">⬆ Voltar para as receitas</a>
-        </section>
+            <p>Misture a quinoa com os vegetais e finalize com o abacate fatiado por cima.</p>
+        </div>
+    </div>
 
-        <section id="receita-pizza" class="detalhe-receita">
-            <h2>Pizza Marguerita Caseira</h2>
+    <div id="modal-pizza" class="modal-content">
+        <div class="modal-header">
+            <h2>Pizza Marguerita</h2>
+            <button class="btn-fechar" onclick="fecharReceita()">&times;</button>
+        </div>
+        <div class="modal-body">
             <h3>Ingredientes</h3>
             <ul>
                 <li>300g de farinha de trigo</li>
-                <li>10g de fermento biológico seco</li>
-                <li>Molho de tomate e mussarela de búfala</li>
-                <li>Folhas de manjericão fresco</li>
+                <li>Molho de tomate e mussarela</li>
+                <li>Manjericão fresco</li>
             </ul>
             <h3>Modo de Preparo</h3>
-            <p>1. Misture a farinha, fermento, água morna e sal. Deixe descansar por 30min.<br>
-               2. Abra a massa, espalhe o molho e o queijo.<br>
-               3. Leve ao forno alto por 15 minutos e finalize com o manjericão.</p>
-            <a href="#" class="btn-voltar">⬆ Voltar para as receitas</a>
-        </section>
+            <p>Abra a massa, coloque o molho e o queijo. Asse em forno alto por 15 min.</p>
+        </div>
+    </div>
 
-        <section id="receita-donuts" class="detalhe-receita">
+    <div id="modal-donuts" class="modal-content">
+        <div class="modal-header">
             <h2>Donuts de Chocolate</h2>
+            <button class="btn-fechar" onclick="fecharReceita()">&times;</button>
+        </div>
+        <div class="modal-body">
             <h3>Ingredientes</h3>
             <ul>
-                <li>500g de farinha, 2 ovos, 100g de manteiga</li>
-                <li>Leite morno e fermento biológico</li>
-                <li>Chocolate meio amargo para a cobertura</li>
+                <li>500g de farinha e 2 ovos</li>
+                <li>Fermento biológico</li>
+                <li>Chocolate derretido</li>
             </ul>
             <h3>Modo de Preparo</h3>
-            <p>1. Prepare a massa e deixe dobrar de tamanho.<br>
-               2. Corte em círculos e frite em óleo não muito quente.<br>
-               3. Mergulhe no chocolate derretido e espere esfriar.</p>
-            <a href="#" class="btn-voltar">⬆ Voltar para as receitas</a>
-        </section>
-
+            <p>Frite a massa em círculos e mergulhe no chocolate derretido após esfriar.</p>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Master Chef Caseiro - Criado com HTML e CSS</p>
+        <p>&copy; 2026 Master Chef Caseiro</p>
     </footer>
+
+    <script>
+        function abrirReceita(idModal) {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById(idModal).style.display = 'block';
+            // Impede o fundo de rolar enquanto a receita está aberta
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharReceita() {
+            document.getElementById('overlay').style.display = 'none';
+            const modais = document.querySelectorAll('.modal-content');
+            modais.forEach(modal => modal.style.display = 'none');
+            // Reativa a rolagem da página
+            document.body.style.overflow = 'auto';
+        }
+    </script>
 
 </body>
 </html>
