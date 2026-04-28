@@ -1,58 +1,141 @@
-/* Fundo escurecido atrás do pop-up */
-#fade {
-    display: none;
-    position: fixed;
+/* style.css */
+:root {
+    --azul-escuro: #0a3d62;
+    --azul-medio: #3c6382;
+    --azul-claro: #f0f4f8;
+    --amarelo-destaque: #f39c12;
+    --texto: #2c3e50;
+    --branco: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: var(--texto);
+    background-color: var(--branco);
+}
+
+/* HEADER */
+header {
+    background-color: var(--azul-escuro);
+    color: white;
+    padding: 20px 0;
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
     z-index: 1000;
 }
 
-/* Janela da Receita */
-.modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 500px;
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    z-index: 1001;
-    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-}
-
-.modal-header {
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+    padding: 0 20px;
 }
 
-.fechar {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #888;
-}
+.sigla { font-size: 1.8rem; font-weight: bold; display: block; }
+.nome-completo { font-size: 0.8rem; opacity: 0.8; }
 
-.btn-pdf {
-    display: inline-block;
-    margin-top: 10px;
-    color: #d35400;
+nav a {
+    color: white;
     text-decoration: none;
-    font-weight: bold;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-/* Estilo dos botões que agora são <button> */
-button.btn {
-    border: none;
-    cursor: pointer;
-    width: 100%;
+nav a:hover { color: var(--amarelo-destaque); }
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.8)), 
+                url('https://images.unsplash.com/photo-1523050853064-9524649adad2?w=1200');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-content h1 { font-size: 2.5rem; margin-bottom: 20px; }
+
+.btn-saiba-mais {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--amarelo-destaque);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* CONTEÚDO */
+.container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+
+.info-secao { text-align: center; margin-bottom: 60px; }
+
+.cards-ensino {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: var(--azul-claro);
+    padding: 30px;
+    border-radius: 10px;
+    border-top: 5px solid var(--azul-medio);
+}
+
+/* AVISOS */
+.avisos {
+    background: #fdfdfd;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+.aviso-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.data {
+    background: var(--azul-escuro);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 20px;
+    font-size: 0.9rem;
+}
+
+/* FOOTER */
+footer {
+    background: var(--azul-escuro);
+    color: white;
+    padding: 50px 20px 20px;
+    margin-top: 50px;
+}
+
+.footer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
 }
