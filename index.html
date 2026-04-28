@@ -3,281 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Chef Caseiro | Receitas de Sucesso</title>
-    <style>
-        /* CONFIGURAÇÕES GERAIS */
-        :root {
-            --primaria: #e67e22;
-            --secundaria: #d35400;
-            --fundo: #fdfaf6;
-            --texto: #2d3436;
-            --branco: #ffffff;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--fundo);
-            color: var(--texto);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        /* CABEÇALHO E MENU */
-        header {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1495195129352-aec325a55b65?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        nav {
-            background: var(--branco);
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 100;
-        }
-
-        nav a { text-decoration: none; color: var(--secundaria); font-weight: bold; }
-
-        /* CONTAINER DOS CARDS */
-        .container-cards {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--branco);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-content { padding: 20px; }
-
-        .badge {
-            background: #ffeaa7;
-            color: #d35400;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primaria);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        .btn:hover { background: var(--secundaria); }
-
-        /* === ESTILO DO MODAL (JANELA EM DESTAQUE) === */
-        
-        /* Fundo escuro */
-        .modal-overlay {
-            display: none; /* Escondido por padrão */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-        }
-
-        /* Caixa da Receita */
-        .modal-content {
-            display: none; /* Escondido por padrão */
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 30px;
-            border-radius: 20px;
-            z-index: 1001;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--fundo);
-            margin-bottom: 20px;
-        }
-
-        .btn-fechar {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #777;
-        }
-
-        .modal-body h3 { color: var(--secundaria); }
-
-        footer {
-            background: #2d3436;
-            color: white;
-            text-align: center;
-            padding: 40px;
-            margin-top: 60px;
-        }
-    </style>
+    <title>CEMAG - C. E. Manoel Antonio Gomes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <h1>🍳 Master Chef Caseiro</h1>
-        <p>Receitas práticas para elevar o seu nível na cozinha.</p>
+        <div class="header-container">
+            <div class="logo">
+                <span class="sigla">CEMAG</span>
+                <span class="nome-completo">C. E. Manoel Antonio Gomes - EFM</span>
+            </div>
+            <nav>
+                <a href="#inicio">Início</a>
+                <a href="#sobre">O Colégio</a>
+                <a href="#noticias">Avisos</a>
+                <a href="#contato" class="btn-contato">Contato</a>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">Receitas</a>
-        <a href="#">Sobre</a>
-    </nav>
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Educação de Qualidade, Futuro com Oportunidade.</h1>
+            <p>Formando cidadãos e profissionais desde a base até o Ensino Médio.</p>
+            <a href="#sobre" class="btn-saiba-mais">Conheça nossa história</a>
+        </div>
+    </section>
 
-    <div class="container-cards">
+    <main class="container">
         
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" alt="Bowl">
-            <div class="card-content">
-                <span class="badge">Saudável</span>
-                <h3>Bowl de Quinoa e Abacate</h3>
-                <p>⏱️ 15 min | 🟢 Fácil</p>
-                <button class="btn" onclick="abrirReceita('modal-quinoa')">Ver Receita</button>
+        <section id="sobre" class="info-secao">
+            <h2>Sobre o CEMAG</h2>
+            <p>O Colégio Estadual Manoel Antonio Gomes - Ensino Fundamental e Médio (EFM) dedica-se ao desenvolvimento integral dos estudantes, oferecendo suporte pedagógico de excelência e um ambiente propício ao aprendizado.</p>
+            
+            <div class="cards-ensino">
+                <div class="card">
+                    <h3>Ensino Fundamental</h3>
+                    <p>Foco na base educacional e desenvolvimento de competências essenciais.</p>
+                </div>
+                <div class="card">
+                    <h3>Ensino Médio</h3>
+                    <p>Preparação para o vestibular, ENEM e o mercado de trabalho.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="noticias" class="avisos">
+            <h2>Quadro de Avisos</h2>
+            <div class="lista-avisos">
+                <div class="aviso-item">
+                    <span class="data">28 Abr</span>
+                    <p>Reunião de pais e mestres - 1º Bimestre às 19h.</p>
+                </div>
+                <div class="aviso-item">
+                    <span class="data">15 Mai</span>
+                    <p>Início das inscrições para os Jogos Escolares.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contato">
+        <div class="footer-grid">
+            <div>
+                <h3>Localização</h3>
+                <p>Endereço do CEMAG em Reserva - PR</p>
+            </div>
+            <div>
+                <h3>Secretaria</h3>
+                <p>Telefone: (42) XXXX-XXXX</p>
+                <p>E-mail: colegiocemag@escola.pr.gov.br</p>
             </div>
         </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="Pizza">
-            <div class="card-content">
-                <span class="badge">Salgado</span>
-                <h3>Pizza Marguerita Caseira</h3>
-                <p>⏱️ 45 min | 🟡 Médio</p>
-                <button class="btn" onclick="abrirReceita('modal-pizza')">Ver Receita</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500" alt="Donuts">
-            <div class="card-content">
-                <span class="badge">Doce</span>
-                <h3>Donuts de Chocolate</h3>
-                <p>⏱️ 60 min | 🔴 Difícil</p>
-                <button class="btn" onclick="abrirReceita('modal-donuts')">Ver Receita</button>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="modal-overlay" id="overlay" onclick="fecharReceita()"></div>
-
-    <div id="modal-quinoa" class="modal-content">
-        <div class="modal-header">
-            <h2>Bowl de Quinoa</h2>
-            <button class="btn-fechar" onclick="fecharReceita()">&times;</button>
-        </div>
-        <div class="modal-body">
-            <h3>Ingredientes</h3>
-            <ul>
-                <li>1 xícara de quinoa cozida</li>
-                <li>1/2 abacate maduro</li>
-                <li>Tomates cereja e pepino</li>
-            </ul>
-            <h3>Modo de Preparo</h3>
-            <p>Misture a quinoa com os vegetais e finalize com o abacate fatiado por cima.</p>
-        </div>
-    </div>
-
-    <div id="modal-pizza" class="modal-content">
-        <div class="modal-header">
-            <h2>Pizza Marguerita</h2>
-            <button class="btn-fechar" onclick="fecharReceita()">&times;</button>
-        </div>
-        <div class="modal-body">
-            <h3>Ingredientes</h3>
-            <ul>
-                <li>300g de farinha de trigo</li>
-                <li>Molho de tomate e mussarela</li>
-                <li>Manjericão fresco</li>
-            </ul>
-            <h3>Modo de Preparo</h3>
-            <p>Abra a massa, coloque o molho e o queijo. Asse em forno alto por 15 min.</p>
-        </div>
-    </div>
-
-    <div id="modal-donuts" class="modal-content">
-        <div class="modal-header">
-            <h2>Donuts de Chocolate</h2>
-            <button class="btn-fechar" onclick="fecharReceita()">&times;</button>
-        </div>
-        <div class="modal-body">
-            <h3>Ingredientes</h3>
-            <ul>
-                <li>500g de farinha e 2 ovos</li>
-                <li>Fermento biológico</li>
-                <li>Chocolate derretido</li>
-            </ul>
-            <h3>Modo de Preparo</h3>
-            <p>Frite a massa em círculos e mergulhe no chocolate derretido após esfriar.</p>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Master Chef Caseiro</p>
+        <p class="copyright">&copy; 2026 CEMAG. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        function abrirReceita(idModal) {
-            document.getElementById('overlay').style.display = 'block';
-            document.getElementById(idModal).style.display = 'block';
-            // Impede o fundo de rolar enquanto a receita está aberta
-            document.body.style.overflow = 'hidden';
-        }
-
-        function fecharReceita() {
-            document.getElementById('overlay').style.display = 'none';
-            const modais = document.querySelectorAll('.modal-content');
-            modais.forEach(modal => modal.style.display = 'none');
-            // Reativa a rolagem da página
-            document.body.style.overflow = 'auto';
-        }
-    </script>
 
 </body>
 </html>
