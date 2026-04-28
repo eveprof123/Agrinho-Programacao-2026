@@ -82,23 +82,30 @@
         nav a:hover { color: var(--amarelo-alerta); }
 
         /* SEÇÃO BEM-VINDO (HERO) - ÚNICA DEFINIÇÃO */
-        .hero {
-            background: linear-gradient(rgba(0, 51, 102, 0.6), rgba(0, 51, 102, 0.6)), 
-                        url('download.jfif'); 
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 120px 20px;
-        }
+       .hero {
+    /* Removido o gradiente azul, deixado apenas a imagem natural */
+    background-image: url('download.jfif'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    /* Adiciona um leve escurecimento na imagem inteira sem mudar a cor */
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: overlay;
+}
 
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+.hero h1 { 
+    font-size: 3rem; 
+    margin-bottom: 10px; 
+    /* Sombra forte no texto para destacar da imagem clara */
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.9); 
+}
 
-        .main-content {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+.hero p {
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+}
 
         h2 { text-align: center; color: var(--azul-escuro); margin-bottom: 30px; }
 
