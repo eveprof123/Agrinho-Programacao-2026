@@ -58,11 +58,11 @@
         }
 
         .logo-img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: white;
-            padding: 2px;
+            object-fit: contain;
         }
 
         .logo-text h1 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; }
@@ -151,79 +151,67 @@
             font-weight: bold;
         }
 
-        /* --- NOVA SEÇÃO DE CONTATO MELHORADA --- */
+        /* --- SEÇÃO DE CONTATO (DUAS COLUNAS) --- */
         .school-info-section {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--white);
+            justify-content: space-around;
+            background-color: var(--background-cream);
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            padding: 40px;
-            gap: 30px;
-            background-color: var(--background-cream);
+            padding: 50px 40px;
+            gap: 40px;
             margin-bottom: 50px;
         }
 
-        .info-block { flex: 1; min-width: 280px; }
+        .info-block { flex: 1; min-width: 300px; }
 
         .info-block h2 {
             font-family: 'Georgia', serif;
             text-align: left;
             color: var(--primary-blue);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            font-size: 1.6rem;
         }
 
         .contact-details, .schedule-details { list-style: none; padding: 0; margin: 0; }
         .contact-details li, .schedule-details li {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
+            align-items: center;
+            margin-bottom: 25px;
             color: var(--text-blue);
             font-weight: bold;
+            font-size: 1.05rem;
         }
 
-        .contact-details .icon { font-size: 1.5rem; margin-right: 15px; }
-        .schedule-details .icon { font-size: 2rem; margin-right: 15px; }
-
-        .icon-phone, .icon-morning { color: var(--icon-pink); }
-        .icon-address, .icon-afternoon { color: var(--icon-orange); }
-        .icon-night { color: var(--primary-blue); }
+        .icon { font-size: 1.8rem; margin-right: 20px; flex-shrink: 0; }
+        .icon-phone { color: var(--icon-pink); }
+        .icon-address { color: var(--icon-orange); }
 
         .btn-google-maps {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            background-color: var(--icon-orange);
+            background-color: #27ae60;
             color: white;
             border: none;
-            border-radius: 10px;
-            padding: 12px 20px;
+            border-radius: 8px;
+            padding: 12px 24px;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
-            margin-top: 20px;
+            margin-top: 10px;
             transition: 0.3s;
         }
-        .btn-google-maps:hover { background-color: #d88100; }
-
-        .map-container {
-            flex: 1.2;
-            min-width: 300px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            height: 300px;
-        }
-        .map-preview { width: 100%; height: 100%; object-fit: cover; }
+        .btn-google-maps:hover { background-color: #1e8449; transform: scale(1.02); }
 
         footer { background: var(--azul-escuro); color: white; text-align: center; padding: 40px; }
 
         @media (max-width: 768px) {
             .container-header { flex-direction: column; text-align: center; }
             nav { margin-top: 15px; }
-            .school-info-section { flex-direction: column; padding: 20px; }
+            .school-info-section { flex-direction: column; padding: 30px 20px; }
+            .info-block h2 { text-align: center; }
+            .contact-details li, .schedule-details li { justify-content: center; }
         }
     </style>
 </head>
@@ -232,7 +220,7 @@
     <header>
         <div class="container-header">
             <div class="logo-flex">
-                <img src="https://i.ibb.co/ZzX8m0K/logo-cemag.jpg" alt="Logo CEMAG" class="logo-img">
+                <img src="image_21eb95.png" alt="Logo CEMAG" class="logo-img">
                 <div class="logo-text">
                     <h1>CEMAG</h1>
                     <p>C. E. Manoel Antonio Gomes - EFM</p>
@@ -309,28 +297,24 @@
                         </div>
                     </li>
                 </ul>
-                <a href="https://www.google.com/maps/search/?api=1&query=Colégio+Estadual+Manoel+Antonio+Gomes+Reserva+PR" target="_blank" class="btn-google-maps">
-                    <span style="margin-right:8px">🗺️</span> Ver no Google Maps
+                <a href="https://www.google.com/maps/search/?api=1&query=Rua+Polônia+905+Reserva+PR" target="_blank" class="btn-google-maps">
+                    <span style="margin-right:10px">🗺️</span> Ver no Google Maps
                 </a>
-            </div>
-
-            <div class="map-container">
-                <img src="https://i.imgur.com/8Q8o3tZ.png" alt="Mapa Localização" class="map-preview">
             </div>
 
             <div class="info-block">
                 <h2>Horário de Secretaria</h2>
                 <ul class="schedule-details">
                     <li>
-                        <span class="icon icon-morning">☀️</span>
+                        <span class="icon">☀️</span>
                         <div><strong>Manhã:</strong><br>07:30 às 11:45</div>
                     </li>
                     <li>
-                        <span class="icon icon-afternoon">⛅</span>
+                        <span class="icon">⛅</span>
                         <div><strong>Tarde:</strong><br>13:00 às 17:30</div>
                     </li>
                     <li>
-                        <span class="icon icon-night">🌙</span>
+                        <span class="icon">🌙</span>
                         <div><strong>Noite:</strong><br>18:30 às 22:30</div>
                     </li>
                 </ul>
