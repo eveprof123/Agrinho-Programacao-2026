@@ -5,33 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Chef Caseiro | Receitas de Sucesso</title>
     <style>
+        /* CONFIGURAÇÕES GERAIS E CORES */
         :root {
             --primaria: #e67e22;
             --secundaria: #d35400;
             --fundo: #fdfaf6;
             --texto: #2d3436;
+            --branco: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Faz o deslizar da tela ser suave */
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--fundo);
             color: var(--texto);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
 
+        /* CABEÇALHO */
         header {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                         url('https://images.unsplash.com/photo-1495195129352-aec325a55b65?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
 
+        /* MENU */
         nav {
-            background: white;
+            background: var(--branco);
             padding: 15px;
             display: flex;
             justify-content: center;
@@ -46,12 +55,10 @@
             text-decoration: none;
             color: var(--secundaria);
             font-weight: bold;
-            transition: 0.3s;
         }
 
-        nav a:hover { color: #e74c3c; }
-
-        .container {
+        /* CONTAINER DOS CARDS */
+        .container-cards {
             max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
@@ -60,9 +67,9 @@
             gap: 30px;
         }
 
-        /* Card de Receita */
+        /* ESTILO DO CARD (IGUAL À SUA IMAGEM) */
         .card {
-            background: white;
+            background: var(--branco);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -78,20 +85,52 @@
         .badge {
             background: #ffeaa7;
             color: #d35400;
-            padding: 5px 10px;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
         }
 
         .btn {
             display: inline-block;
             background: var(--primaria);
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 10px 25px;
+            border-radius: 8px;
             text-decoration: none;
+            font-weight: bold;
             margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: var(--secundaria); }
+
+        /* SEÇÃO DE DETALHES DA RECEITA */
+        .container-receitas {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        .detalhe-receita {
+            background: var(--branco);
+            padding: 40px;
+            margin-top: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 8px solid var(--primaria);
+        }
+
+        .detalhe-receita h2 { color: var(--secundaria); margin-top: 0; }
+
+        .btn-voltar {
+            display: block;
+            margin-top: 30px;
+            color: #777;
+            text-decoration: none;
+            font-size: 0.9rem;
         }
 
         footer {
@@ -99,7 +138,7 @@
             color: white;
             text-align: center;
             padding: 40px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
     </style>
 </head>
@@ -107,56 +146,106 @@
 
     <header>
         <h1>🍳 Master Chef Caseiro</h1>
-        <p>Descubra o prazer de cozinhar pratos incríveis em minutos.</p>
+        <p>Receitas práticas para elevar o seu nível na cozinha.</p>
     </header>
 
     <nav>
-        <a href="#doces">Doces</a>
-        <a href="#salgados">Salgados</a>
-        <a href="#fit">Saudável</a>
-        <a href="#sobre">Dicas do Chef</a>
+        <a href="#">Início</a>
+        <a href="#doces">Receitas</a>
+        <a href="#">Sobre</a>
     </nav>
 
-    <div class="container">
+    <div class="container-cards">
+        
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="Salada">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" alt="Bowl">
             <div class="card-content">
                 <span class="badge">Saudável</span>
                 <h3>Bowl de Quinoa e Abacate</h3>
                 <p>⏱️ 15 min | 🟢 Fácil</p>
                 <p>Uma opção leve, nutritiva e perfeita para um almoço rápido no dia a dia.</p>
-                <a href="#" class="btn">Ver Receita</a>
+                <a href="#receita-quinoa" class="btn">Ver Receita</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Pizza">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="Pizza">
             <div class="card-content">
                 <span class="badge">Salgado</span>
                 <h3>Pizza Marguerita Caseira</h3>
                 <p>⏱️ 45 min | 🟡 Médio</p>
                 <p>Aprenda o segredo da massa italiana crocante com poucos ingredientes.</p>
-                <a href="#" class="btn">Ver Receita</a>
+                <a href="#receita-pizza" class="btn">Ver Receita</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=500&q=80" alt="Donut">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500" alt="Donuts">
             <div class="card-content">
                 <span class="badge">Doce</span>
                 <h3>Donuts de Chocolate</h3>
                 <p>⏱️ 60 min | 🔴 Difícil</p>
                 <p>Para quem ama confeitaria: donuts macios com cobertura de ganache real.</p>
-                <a href="#" class="btn">Ver Receita</a>
+                <a href="#receita-donuts" class="btn">Ver Receita</a>
             </div>
         </div>
+
+    </div>
+
+    <div class="container-receitas">
+        
+        <section id="receita-quinoa" class="detalhe-receita">
+            <h2>Bowl de Quinoa e Abacate</h2>
+            <p><strong>Dica do Chef:</strong> Cozinhe a quinoa em caldo de legumes para dar mais sabor!</p>
+            <h3>Ingredientes</h3>
+            <ul>
+                <li>1 xícara de quinoa cozida</li>
+                <li>1/2 abacate maduro</li>
+                <li>Tomates cereja, milho e pepino</li>
+                <li>Azeite, limão e sal</li>
+            </ul>
+            <h3>Modo de Preparo</h3>
+            <p>1. Em uma tigela grande, coloque a quinoa como base.<br>
+               2. Arrume os vegetais picados por cima de forma organizada.<br>
+               3. Finalize com as fatias de abacate e o tempero.</p>
+            <a href="#" class="btn-voltar">⬆ Voltar para as receitas</a>
+        </section>
+
+        <section id="receita-pizza" class="detalhe-receita">
+            <h2>Pizza Marguerita Caseira</h2>
+            <h3>Ingredientes</h3>
+            <ul>
+                <li>300g de farinha de trigo</li>
+                <li>10g de fermento biológico seco</li>
+                <li>Molho de tomate e mussarela de búfala</li>
+                <li>Folhas de manjericão fresco</li>
+            </ul>
+            <h3>Modo de Preparo</h3>
+            <p>1. Misture a farinha, fermento, água morna e sal. Deixe descansar por 30min.<br>
+               2. Abra a massa, espalhe o molho e o queijo.<br>
+               3. Leve ao forno alto por 15 minutos e finalize com o manjericão.</p>
+            <a href="#" class="btn-voltar">⬆ Voltar para as receitas</a>
+        </section>
+
+        <section id="receita-donuts" class="detalhe-receita">
+            <h2>Donuts de Chocolate</h2>
+            <h3>Ingredientes</h3>
+            <ul>
+                <li>500g de farinha, 2 ovos, 100g de manteiga</li>
+                <li>Leite morno e fermento biológico</li>
+                <li>Chocolate meio amargo para a cobertura</li>
+            </ul>
+            <h3>Modo de Preparo</h3>
+            <p>1. Prepare a massa e deixe dobrar de tamanho.<br>
+               2. Corte em círculos e frite em óleo não muito quente.<br>
+               3. Mergulhe no chocolate derretido e espere esfriar.</p>
+            <a href="#" class="btn-voltar">⬆ Voltar para as receitas</a>
+        </section>
+
     </div>
 
     <footer>
-        <p>Receba receitas novas toda semana!</p>
-        <input type="email" placeholder="Seu melhor e-mail">
-        <button style="padding: 5px 15px;">Assinar</button>
-        <p style="margin-top: 20px;">&copy; 2026 Master Chef Caseiro</p>
+        <p>&copy; 2026 Master Chef Caseiro - Criado com HTML e CSS</p>
     </footer>
 
 </body>
