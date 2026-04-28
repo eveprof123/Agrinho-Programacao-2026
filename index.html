@@ -3,282 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEMAG - C. E. Manoel Antonio Gomes</title>
+    <title>CEMAG - Contato e Horários</title>
     <style>
-        /* CONFIGURAÇÕES GERAIS */
+        /* Estilos Globais */
         :root {
-            --azul-parana: #004a8d;
-            --azul-escuro: #003366;
-            --cinza-claro: #f4f7f9;
-            --texto: #333333;
-            --branco: #ffffff;
-            --amarelo-alerta: #ffcc00;
+            --primary-blue: #002147; /* Cor escura do título */
+            --text-blue: #003366; /* Cor escura do texto */
+            --icon-pink: #eb0a8b; /* Cor do ícone de telefone */
+            --icon-orange: #f39100; /* Cor do ícone de endereço e botão */
+            --background-cream: #f9f7f4; /* Cor de fundo creme */
+            --white: #ffffff;
+            --gray-light: #f0f0f0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Open Sans', sans-serif; /* Fonte limpa e profissional */
+            background-color: var(--background-cream);
             margin: 0;
-            padding: 0;
-            color: var(--texto);
-            background-color: var(--branco);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        /* CABEÇALHO */
-        header {
-            background-color: var(--azul-parana);
-            color: white;
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .container-header {
-            max-width: 1100px;
-            margin: 0 auto;
+            padding: 20px;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container Principal da Seção */
+        .school-info-section {
+            display: flex;
+            flex-direction: row; /* Três colunas horizontais */
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            background-color: var(--white);
+            border-radius: 20px; /* Cantos arredondados do container */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra sutil */
+            padding: 40px;
+            max-width: 1200px;
+            width: 100%;
+            gap: 30px; /* Espaço entre as seções */
         }
 
-        .logo h1 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; }
-        .logo p { margin: 0; font-size: 0.8rem; opacity: 0.9; }
+        /* Seções Internas */
+        .info-block {
+            flex: 1; /* Distribui o espaço igualmente */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
+        /* Títulos */
+        .info-block h2 {
+            font-family: 'Georgia', serif; /* Fonte serifada para títulos */
+            font-size: 24px;
             font-weight: bold;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        nav a:hover { color: var(--amarelo-alerta); }
-
-        /* BANNER PRINCIPAL */
-        .hero {
-            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), 
-                        url('https://images.unsplash.com/photo-1541339907198-e08756ebafe3?w=1200');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
-
-        /* CONTEÚDO */
-        .main-content {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        h2 {
-            text-align: center;
-            color: var(--azul-escuro);
+            color: var(--primary-blue);
+            margin-top: 0;
             margin-bottom: 30px;
         }
 
-        /* CARDS DE ENSINO */
-        .grid-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+        /* Detalhes de Contato */
+        .contact-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
         }
 
-        .card {
-            background: var(--cinza-claro);
-            padding: 30px;
-            border-radius: 10px;
-            border-bottom: 5px solid var(--azul-parana);
-            text-align: center;
+        .contact-details li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            color: var(--text-blue);
+            font-weight: bold;
         }
 
-        /* DOCUMENTOS ÚTEIS */
-        .documentos-secao {
-            background-color: #fcfcfc;
-            padding: 50px 20px;
-            border-radius: 15px;
-            margin-bottom: 60px;
+        .contact-details li:last-child {
+            margin-bottom: 0;
         }
 
-        .grid-documentos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        /* Ícones de Contato */
+        .contact-details .icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .icon-phone {
+            color: var(--icon-pink);
+        }
+
+        .icon-address {
+            color: var(--icon-orange);
+        }
+
+        /* Detalhes de Endereço */
+        .address-sub-details {
+            display: flex;
+            flex-direction: column;
+            font-weight: normal; /* Texto de endereço não é negrito */
+            margin-top: 5px;
+        }
+
+        /* Botão do Maps */
+        .btn-google-maps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--icon-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 10px; /* Cantos arredondados do botão */
+            padding: 12px 20px;
+            font-weight: bold;
+            cursor: pointer;
             margin-top: 30px;
+            width: 100%;
+            max-width: 250px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
         }
 
-        .doc-card {
-            background: #fff;
-            padding: 25px;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .btn-google-maps:hover {
+            background-color: #d88100; /* Laranja mais escuro no hover */
         }
 
-        .doc-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        .btn-google-maps .icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
 
-        .icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        /* Contêiner do Mapa */
+        .map-container {
+            flex: 1.2; /* Mapa um pouco mais largo */
+            border-radius: 15px; /* Cantos arredondados do mapa */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
 
-        .btn-download {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: var(--azul-parana);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.85rem;
+        /* Imagem de Pré-visualização do Mapa (Substituível por Iframe) */
+        .map-preview {
+            width: 100%;
+            height: 350px; /* Altura do mapa */
+            object-fit: cover;
+            border: none;
+        }
+
+        /* Detalhes de Horário */
+        .schedule-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .schedule-details li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: var(--text-blue);
             font-weight: bold;
-            transition: background 0.3s;
         }
 
-        .btn-download:hover { background: var(--azul-escuro); }
-
-        /* CONTATO E MAPA */
-        .contato-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: #f0f0f0;
-            padding: 40px;
-            border-radius: 15px;
+        .schedule-details li:last-child {
+            margin-bottom: 0;
         }
 
-        .info-contato h2 { text-align: left; }
-
-        .btn-mapa {
-            display: inline-block;
-            background: #27ae60;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 15px;
+        /* Ícones de Horário Estilizados */
+        .schedule-details .icon {
+            font-size: 2.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* RODAPÉ */
-        footer {
-            background: var(--azul-escuro);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
+        /* Cores Específicas dos Ícones de Horário */
+        .icon-morning {
+            color: var(--icon-pink);
         }
 
-        @media (max-width: 768px) {
-            .contato-row { grid-template-columns: 1fr; }
-            .container-header { flex-direction: column; }
-            nav { margin-top: 15px; }
-            nav a { margin: 0 10px; }
+        .icon-afternoon {
+            color: var(--icon-orange);
+        }
+
+        .icon-night {
+            color: var(--primary-blue);
+        }
+
+        /* Ajustes para Dispositivos Móveis */
+        @media (max-width: 900px) {
+            .school-info-section {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 30px;
+            }
+
+            .map-container {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            .info-block {
+                align-items: center;
+            }
+
+            .btn-google-maps {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container-header">
-            <div class="logo">
-                <h1>CEMAG</h1>
-                <p>C. E. Manoel Antonio Gomes - EFM</p>
-            </div>
-            <nav>
-                <a href="#inicio">Início</a>
-                <a href="#sobre">O Colégio</a>
-                <a href="#documentos">Documentos</a>
-                <a href="#contato">Contato</a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero" id="inicio">
-        <h1>Bem-vindo ao CEMAG</h1>
-        <p>Tradição e excelência no ensino público de Reserva, Paraná.</p>
-    </section>
-
-    <main class="main-content">
+    <section class="school-info-section">
         
-        <section id="sobre">
-            <h2>Nossos Níveis de Ensino</h2>
-            <div class="grid-info">
-                <div class="card">
-                    <h3>Ensino Fundamental</h3>
-                    <p>Anos finais (6º ao 9º ano) com foco no desenvolvimento integral, intelectual e social do aluno.</p>
-                </div>
-                <div class="card">
-                    <h3>Ensino Médio</h3>
-                    <p>Preparação sólida para o ENEM, vestibulares e formação voltada ao mercado de trabalho.</p>
-                </div>
-            </div>
-        </section>
+        <div class="info-block contact-block">
+            <h2>Entre em Contato</h2>
+            <ul class="contact-details">
+                <li>
+                    <span class="icon icon-phone">📞</span>
+                    <div><strong>Telefone:</strong> (42) 3276-1274</div>
+                </li>
+                <li>
+                    <span class="icon icon-address">📍</span>
+                    <div>
+                        <strong>Endereço:</strong>
+                        <div class="address-sub-details">
+                            Rua Polônia, 905, Centro
+                            Rua Polônia, 905, Centro
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn-google-maps">
+                <span class="icon">🗺️</span> Ver no Google Maps
+            </button>
+        </div>
 
-        <section id="documentos" class="documentos-secao">
-            <h2>Documentos Úteis</h2>
-            <p style="text-align: center;">Clique nos botões abaixo para visualizar ou baixar os arquivos oficiais.</p>
-            
-            <div class="grid-documentos">
-                <div class="doc-card">
-                    <span class="icon">📅</span>
-                    <h4>Calendário Escolar 2026</h4>
-                    <p>Datas de provas, feriados e recessos escolares.</p>
-                    <a href="https://www.educacao.pr.gov.br/sites/default/arquivos_restritos/files/documento/2025-11/calendario_escolar2026.pdf" target="_blank" class="btn-download">Abrir Calendário</a>
-                </div>
+        <div class="map-container">
+            <img src="https://i.imgur.com/8Q8o3tZ.png" alt="Pré-visualização do Mapa do Colégio" class="map-preview">
+        </div>
 
-                <div class="doc-card">
-                    <span class="icon">📝</span>
-                    <h4>Lista de Materiais</h4>
-                    <p>Relação de materiais necessários para cada série.</p>
-                    <a href="#" class="btn-download">Ver Lista</a>
-                </div>
+        <div class="info-block schedule-block">
+            <h2>Horário de Secretaria</h2>
+            <ul class="schedule-details">
+                <li>
+                    <span class="icon icon-morning">☀️🕒</span>
+                    <div><strong>Manhã:</strong> 07:30 às 11:45</div>
+                </li>
+                <li>
+                    <span class="icon icon-afternoon">☀️🕒</span>
+                    <div><strong>Tarde:</strong> 13:00 às 17:30</div>
+                </li>
+                <li>
+                    <span class="icon icon-night">🌙🕒</span>
+                    <div><strong>Noite:</strong> 18:30 às 22:30</div>
+                </li>
+            </ul>
+        </div>
 
-                <div class="doc-card">
-                    <span class="icon">📋</span>
-                    <h4>Regimento Escolar</h4>
-                    <p>Normas de convivência e regimento interno.</p>
-                    <a href="#" class="btn-download">Acessar</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contato">
-            <div class="contato-row">
-                <div class="info-contato">
-                    <h2>Entre em Contato</h2>
-                    <p><strong>📞 Telefone:</strong> (42) 3276-1274</p>
-                    <p><strong>📍 Endereço:</strong><br>
-                    Rua Polônia, 905, Centro<br>
-                    Reserva - PR, 84320-000</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Rua+Polonia+905+Reserva+PR" target="_blank" class="btn-mapa">🗺️ Ver no Google Maps</a>
-                </div>
-                <div>
-                    <h2>Horário de Secretaria</h2>
-                    <p><strong>Manhã:</strong> 07:30 às 11:45</p>
-                    <p><strong>Tarde:</strong> 13:00 às 17:30</p>
-                    <p><strong>Noite:</strong> 18:30 às 22:30</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p><strong>Colégio Estadual Manoel Antonio Gomes - EFM</strong></p>
-        <p>Reserva - Paraná</p>
-        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 15px;">© 2026 Desenvolvido para fins educacionais.</p>
-    </footer>
+    </section>
 
 </body>
 </html>
