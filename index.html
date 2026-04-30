@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CEMAG - Colégio Estadual Manoel Antonio Gomes</title>
     <style>
-        /* CONFIGURAÇÕES GERAIS */
+        /* CONFIGURAÇÕES GERAIS E CORES */
         :root {
             --azul-parana: #004a8d;
             --azul-escuro: #003366;
@@ -27,11 +27,11 @@
             scroll-behavior: smooth;
         }
 
-        /* CABEÇALHO */
+        /* 1. CABEÇALHO SLIM (REDUZIDO) */
         header {
             background-color: var(--azul-parana);
             color: white;
-            padding: 10px 0;
+            padding: 5px 0; /* Padding reduzido */
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             position: sticky;
             top: 0;
@@ -50,90 +50,105 @@
         .logo-flex {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             text-decoration: none;
             color: white;
         }
 
         .logo-img {
-            width: 60px;
-            height: 60px;
+            width: 45px; /* Logo menor */
+            height: 45px;
             border-radius: 50%;
             background: white;
             object-fit: contain;
             border: 2px solid var(--amarelo-alerta);
         }
 
+        .logo-text h1 { margin: 0; font-size: 1.2rem; letter-spacing: 1px; }
+        .logo-text p { margin: 0; font-size: 0.65rem; opacity: 0.9; }
+
         nav a {
             color: white;
             text-decoration: none;
             margin-left: 15px;
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: 0.3s;
         }
-
         nav a:hover { color: var(--amarelo-alerta); }
 
-        /* HERO SECTION - IMAGEM NATURAL */
-        .hero {
-            background-image: url('download.jfif'); 
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero h1 { 
-            font-size: 3rem; 
-            margin-bottom: 10px; 
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.8); 
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            max-width: 700px;
-        }
-
-        /* ACESSO RÁPIDO (NOVO) */
+        /* 2. ACESSO RÁPIDO */
         .quick-access {
             background: var(--azul-escuro);
-            padding: 20px 0;
+            padding: 12px 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         .btn-quick {
             background: var(--amarelo-alerta);
             color: var(--azul-escuro);
-            padding: 10px 20px;
-            border-radius: 50px;
+            padding: 6px 15px;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.9rem;
-            transition: transform 0.2s;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+        .btn-quick:hover { background: white; transform: translateY(-2px); }
+
+        /* 3. HERO - IMAGEM NATURAL */
+        .hero {
+            background-image: url('download.jfif'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
         }
 
-        .btn-quick:hover { transform: scale(1.05); background: white; }
+        .hero h1 { 
+            font-size: 2.8rem; 
+            margin-bottom: 10px; 
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.9); 
+        }
 
+        .hero p {
+            font-size: 1.1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 4. SEÇÕES DO CONTEÚDO */
         .main-content {
             max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        h2 { text-align: center; color: var(--azul-escuro); margin-bottom: 40px; position: relative; }
-        h2::after { content: ''; width: 50px; height: 3px; background: var(--amarelo-alerta); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        h2 { text-align: center; color: var(--azul-escuro); margin-bottom: 35px; }
 
-        /* GRID DE CARDS */
+        /* MURAL DE NOTÍCIAS */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .news-item {
+            background: #fff;
+            padding: 20px;
+            border-left: 5px solid var(--azul-parana);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .news-date { font-size: 0.75rem; color: #888; font-weight: bold; }
+
+        /* CARDS ENSINO */
         .grid-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -145,37 +160,14 @@
             background: var(--cinza-claro);
             padding: 25px;
             border-radius: 10px;
-            border-top: 5px solid var(--azul-parana);
+            border-bottom: 4px solid var(--azul-parana);
             text-align: center;
-            transition: 0.3s;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-
-        /* SEÇÃO DE NOTÍCIAS (NOVO) */
-        .news-section {
-            background: #fff;
-            padding: 40px 0;
-            margin-bottom: 60px;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .news-item {
-            border-left: 4px solid var(--azul-parana);
-            padding: 15px;
-            background: #f9f9f9;
-        }
-
-        .news-date { font-size: 0.8rem; color: #666; font-weight: bold; }
 
         /* DOCUMENTOS */
         .documentos-secao {
-            background-color: var(--cinza-claro);
-            padding: 50px 20px;
+            background: var(--background-cream);
+            padding: 40px 20px;
             border-radius: 15px;
             margin-bottom: 60px;
         }
@@ -183,60 +175,60 @@
         .grid-documentos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            gap: 15px;
         }
 
         .doc-card {
-            background: #fff;
+            background: white;
             padding: 20px;
-            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            border-radius: 8px;
         }
 
         .btn-download {
             display: inline-block;
             margin-top: 10px;
-            padding: 8px 15px;
+            padding: 8px 16px;
             background: var(--azul-parana);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
         }
 
         /* CONTATO */
         .school-info-section {
             display: flex;
             flex-wrap: wrap;
-            background-color: var(--background-cream);
-            border-radius: 20px;
-            padding: 40px;
             gap: 40px;
-            margin-bottom: 50px;
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 40px;
+            border-radius: 15px;
         }
 
-        .info-block { flex: 1; min-width: 300px; }
+        .info-block { flex: 1; min-width: 280px; }
         .contact-details { list-style: none; padding: 0; }
-        .contact-details li { display: flex; align-items: center; margin-bottom: 20px; gap: 15px; }
-        .icon { font-size: 1.5rem; }
+        .contact-details li { margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
 
         .btn-google-maps {
-            display: inline-block;
-            background-color: #27ae60;
+            background: #27ae60;
             color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
+            padding: 10px 20px;
             text-decoration: none;
+            border-radius: 5px;
             font-weight: bold;
-            margin-top: 10px;
+            display: inline-block;
         }
 
-        footer { background: var(--azul-escuro); color: white; text-align: center; padding: 40px; }
+        footer { background: var(--azul-escuro); color: white; text-align: center; padding: 30px; margin-top: 50px; }
 
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .container-header { flex-direction: column; }
+            .container-header { flex-direction: column; gap: 10px; }
             .hero h1 { font-size: 2rem; }
+            .school-info-section { padding: 20px; }
         }
     </style>
 </head>
@@ -244,17 +236,16 @@
 
     <header>
         <div class="container-header">
-            <a href="#" class="logo-flex">
+            <div class="logo-flex">
                 <img src="imagemcemag.jpg" alt="Logo CEMAG" class="logo-img">
                 <div class="logo-text">
                     <h1>CEMAG</h1>
-                    <p style="margin:0; font-size: 0.7rem;">Reserva - PR</p>
+                    <p>Colégio Estadual Manoel Antonio Gomes</p>
                 </div>
-            </a>
+            </div>
             <nav>
                 <a href="#inicio">Início</a>
-                <a href="#noticias">Mural</a>
-                <a href="#sobre">Ensino</a>
+                <a href="#mural">Mural</a>
                 <a href="#documentos">Documentos</a>
                 <a href="#contato">Contato</a>
             </nav>
@@ -262,73 +253,68 @@
     </header>
 
     <div class="quick-access">
-        <a href="https://www.rco.seed.pr.gov.br/" target="_blank" class="btn-quick">LRM / RCO</a>
+        <a href="https://www.rco.seed.pr.gov.br/" target="_blank" class="btn-quick">RCO / LRM</a>
         <a href="https://www.escolaparana.pr.gov.br/" target="_blank" class="btn-quick">Escola Paraná</a>
         <a href="https://www.educacao.pr.gov.br/" target="_blank" class="btn-quick">SEED-PR</a>
     </div>
 
     <section class="hero" id="inicio">
         <h1>Bem-vindo ao CEMAG</h1>
-        <p>Colégio Estadual Manoel Antonio Gomes - EFM. Educando com tradição e compromisso desde 1960 em Reserva, Paraná.</p>
+        <p>Excelência no Ensino Público em Reserva - Paraná. Tradição que transforma vidas desde 1960.</p>
     </section>
 
     <main class="main-content">
-        
-        <section id="noticias" class="news-section">
-            <h2>Mural de Avisos</h2>
+
+        <section id="mural">
+            <h2>Mural do Colégio</h2>
             <div class="news-grid">
                 <div class="news-item">
-                    <span class="news-date">30 ABR 2026</span>
-                    <h4>Rematrículas Abertas</h4>
-                    <p>Fiquem atentos aos prazos para a renovação de matrícula no portal Secretaria Escolar Digital.</p>
+                    <span class="news-date">30 ABRIL 2026</span>
+                    <h4>Rematrículas 2026</h4>
+                    <p>Prazo final para confirmação de vagas via Secretaria Digital. Não perca a data!</p>
                 </div>
                 <div class="news-item">
-                    <span class="news-date">25 ABR 2026</span>
-                    <h4>Jogos Escolares</h4>
-                    <p>Nossos atletas do futsal avançaram para a fase regional. Parabéns aos alunos!</p>
-                </div>
-                <div class="news-item">
-                    <span class="news-date">15 ABR 2026</span>
-                    <h4>Reunião de Pais</h4>
-                    <p>Convocamos os pais dos 6ºs anos para reunião pedagógica às 19h no auditório.</p>
+                    <span class="news-date">28 ABRIL 2026</span>
+                    <h4>Olimpíada de Matemática</h4>
+                    <p>Parabéns aos alunos classificados para a segunda fase da OBMEP!</p>
                 </div>
             </div>
         </section>
 
         <section id="sobre">
-            <h2>Nossos Níveis de Ensino</h2>
+            <h2>Níveis de Ensino</h2>
             <div class="grid-info">
                 <div class="card">
-                    <h3>Ensino Fundamental</h3>
-                    <p>Anos finais (6º ao 9º ano) focados no desenvolvimento integral e cidadania.</p>
+                    <h3>Fundamental</h3>
+                    <p>Anos finais (6º ao 9º ano).</p>
                 </div>
                 <div class="card">
                     <h3>Ensino Médio</h3>
-                    <p>Preparação completa para o ENEM e Vestibulares com itinerários formativos.</p>
+                    <p>Formação Geral Básica e Itinerários.</p>
                 </div>
                 <div class="card">
-                    <h3>Ensino Técnico</h3>
-                    <p>Cursos profissionalizantes para inserção imediata no mercado de trabalho regional.</p>
+                    <h3>Técnico</h3>
+                    <p>Cursos profissionalizantes integrados.</p>
                 </div>
             </div>
         </section>
 
         <section id="documentos" class="documentos-secao">
-            <h2>Documentos e Links</h2>
+            <h2>Documentos Úteis</h2>
             <div class="grid-documentos">
                 <div class="doc-card">
-                    <span class="icon">📅</span>
-                    <h4>Calendário 2026</h4>
-                    <a href="https://www.educacao.pr.gov.br/sites/default/arquivos_restritos/files/documento/2025-11/calendario_escolar2026.pdf" target="_blank" class="btn-download">PDF Oficial</a>
+                    <strong>Calendário Escolar</strong>
+                    <br>
+                    <a href="https://www.educacao.pr.gov.br/sites/default/arquivos_restritos/files/documento/2025-11/calendario_escolar2026.pdf" target="_blank" class="btn-download">Baixar PDF</a>
                 </div>
                 <div class="doc-card">
-                    <span class="icon">📝</span>
-                    <h4>Materiais</h4>
+                    <strong>Lista de Materiais</strong>
+                    <br>
                     <a href="#" class="btn-download">Ver Lista</a>
                 </div>
                 <div class="doc-card">
-                    <span class="icon">📋</span>
-                    <h4>Regimento</h4>
+                    <strong>Regimento Interno</strong>
+                    <br>
                     <a href="#" class="btn-download">Acessar</a>
                 </div>
             </div>
@@ -336,33 +322,19 @@
 
         <section id="contato" class="school-info-section">
             <div class="info-block">
-                <h2>Canais de Atendimento</h2>
+                <h2>Fale Conosco</h2>
                 <ul class="contact-details">
-                    <li>
-                        <span class="icon">📞</span>
-                        <div><strong>Telefone:</strong><br>(42) 3276-1274</div>
-                    </li>
-                    <li>
-                        <span class="icon">✉️</span>
-                        <div><strong>E-mail:</strong><br>
-                            <a href="mailto:rrvmanoelgomes@seed.pr.gov.br" style="color:var(--text-blue); text-decoration:none;">rrvmanoelgomes@seed.pr.gov.br</a>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="icon">📍</span>
-                        <div><strong>Endereço:</strong><br>R. José Soltovski, 633 - Reserva - PR</div>
-                    </li>
+                    <li><strong>📞 Telefone:</strong> (42) 3276-1274</li>
+                    <li><strong>✉️ E-mail:</strong> <a href="mailto:rrvmanoelgomes@seed.pr.gov.br" style="color:var(--azul-parana); text-decoration:none;">rrvmanoelgomes@seed.pr.gov.br</a></li>
+                    <li><strong>📍 Endereço:</strong> R. José Soltovski, 633 - Reserva - PR</li>
                 </ul>
-                <a href="https://www.google.com/maps/search/Colégio+Estadual+Manoel+Antonio+Gomes+Reserva" target="_blank" class="btn-google-maps">📍 Abrir no Mapa</a>
+                <a href="https://www.google.com/maps/search/Col%C3%A9gio+Estadual+Manoel+Antonio+Gomes" target="_blank" class="btn-google-maps">Ver no Mapa</a>
             </div>
-
             <div class="info-block">
-                <h2>Horário da Secretaria</h2>
-                <ul class="schedule-details" style="list-style:none; padding:0;">
-                    <li style="margin-bottom:15px;"><strong>🌅 Manhã:</strong> 07:30 às 11:45</li>
-                    <li style="margin-bottom:15px;"><strong>☀️ Tarde:</strong> 13:00 às 17:30</li>
-                    <li style="margin-bottom:15px;"><strong>🌙 Noite:</strong> 18:30 às 22:30</li>
-                </ul>
+                <h2>Secretaria</h2>
+                <p><strong>Manhã:</strong> 07:30 - 11:45</p>
+                <p><strong>Tarde:</strong> 13:00 - 17:30</p>
+                <p><strong>Noite:</strong> 18:30 - 22:30</p>
             </div>
         </section>
 
@@ -370,8 +342,7 @@
 
     <footer>
         <p><strong>Colégio Estadual Manoel Antonio Gomes - EFM</strong></p>
-        <p>Tradição em educação desde 1960.</p>
-        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 20px;">© 2026 Portal CEMAG. Desenvolvido para a comunidade escolar.</p>
+        <p>Reserva - PR | © 2026 Portal Oficial</p>
     </footer>
 
 </body>
